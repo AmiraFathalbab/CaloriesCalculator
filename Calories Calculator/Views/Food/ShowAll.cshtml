@@ -1,0 +1,33 @@
+﻿@* @model List<Foods>   *@ 
+@{
+    ViewData["Title"] = "ShowAll";
+}
+<a class="btn btn-primary" asp-action="AddNew">
+    <i class="bi bi-plus-circle-dotted"></i>
+    Add New Food
+</a>
+<div class="row mt-5">
+    @foreach (var item in Model)
+    {
+        <div class="col-lg-4 col-md-6">
+            <div class="card bg-light mb-3" style="max-width: 20rem;">
+                <div class="card-header">@item.Name</div>
+                <div class="card-body" >
+                    <img class="card-img-top" src="/Images/@item.Image" style="width:240px;height:200px;" />
+                </div>
+                <div class="card-footer">
+                    <div style="display: flex; justify-content: space-between;">
+                        <span>@item.Calory cal/100g</span>
+                        <a asp-action="Delete" asp-route-id="@item.Id">
+                            <i class="bi bi-trash-fill"></i>
+                        </a>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    }
+</div>
+
+
+

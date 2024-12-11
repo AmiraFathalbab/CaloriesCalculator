@@ -1,0 +1,65 @@
+﻿
+@* @model dynamic
+
+
+@{
+    ViewData["Title"] = "AddNew";
+}
+
+<h3>
+    <i class="bi bi-plus-circle-dotted"></i>
+    AddNew
+</h3>
+<form method="get" action="/Food/SaveNew">
+    <div>
+        
+        <label>Name</label> 
+        <input type="text" name="@Model.Food.Name" class="form-control"/>
+    </div>
+    <div>
+        <label for="image">Image</label>
+        <input type="file" id="image" name="@Model.Food.Image" class="form-control" accept="image/*" required />
+    </div>
+    <div>
+        <label>Calory</label>
+        <input type="number" name="@Model.Food.Calory" class="form-control"/>
+    </div>
+    <div>
+        <label>Department Name</label>
+        <input type="number" name="@Model.Department.Name" class="form-control"/>
+    </div>
+    <input type="submit" value="Add" class="btn btn-success"/>
+</form>
+ *@
+
+
+ @model dynamic
+
+@{
+    ViewData["Title"] = "AddNew";
+}
+
+<h3>
+    <i class="bi bi-plus-circle-dotted"></i>
+    Add New
+</h3>
+<form method="post" action="/Food/SaveNew" enctype="multipart/form-data">
+    <div>
+        <label>Name</label> 
+        <input type="text" name="Food.Name" class="form-control" required />
+    </div>
+    <div>
+        <label for="image">Image</label>
+        <input type="file" id="image" name="Food.Image" class="form-control" accept="image/*" required />
+    </div>
+    <div>
+        <label>Calory</label>
+        <input type="number" name="Food.Calory" class="form-control" required />
+    </div>
+    <div>
+        <label>Department Name</label>
+        <input type="text" name="Department.Name" class="form-control" required />
+    </div>
+    
+    <input type="submit" value="Add" class="btn btn-success"/>
+</form>
